@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Number_System</string>
+    <string name="user_value">Enter value</string>
+    <string name="btn_convert">Convert</string>
+    <string name="str_result">Result</string>
+
+    <string-array name="num_system_array">
+        <item>Binary</item>
+        <item>Decimal</item>
+        <item>Octal</item>
+        <item>Hexadecimal</item>
+    </string-array>
 </resources>
