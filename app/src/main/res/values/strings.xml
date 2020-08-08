@@ -3,6 +3,8 @@
     <string name="user_value">Enter value</string>
     <string name="btn_convert">Convert</string>
     <string name="str_result">Result</string>
+    <string name="img_arrow">arrow</string>
+    <string name="error_mag"> </string>
 
     <string-array name="num_system_array">
         <item>Binary</item>
