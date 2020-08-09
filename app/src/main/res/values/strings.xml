@@ -1,15 +1,10 @@
 <resources>
     <string name="app_name">Number System Convert</string>
-    <string name="user_value">Enter value</string>
-    <string name="btn_convert">Convert</string>
-    <string name="str_result">Result</string>
-    <string name="img_arrow">arrow</string>
-    <string name="error_mag"> </string>
-
-    <string-array name="num_system_array">
-        <item>Binary</item>
-        <item>Decimal</item>
-        <item>Octal</item>
-        <item>Hexadecimal</item>
-    </string-array>
+    <string name="binary">Bin</string>
+    <string name="decimal">Dec</string>
+    <string name="octal">Oct</string>
+    <string name="hexadecimal">Hex</string>
+    <string name = "enter_id">Enter a value</string>
+    <string name="str_btn_convert">Convert</string>
+    <string name="str_btn_clear">Clear</string>
 </resources>

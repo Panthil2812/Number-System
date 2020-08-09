@@ -28,6 +28,7 @@
 
             <TextView
                 android:id="@+id/txt_bin"
+                style="@style/text_theme"
                 android:layout_width="70dp"
                 android:layout_height="match_parent"
                 android:background="@drawable/dialog_bg"
@@ -52,16 +53,17 @@
 
                 <EditText
                     android:id="@+id/txt_binary"
+                    style="@style/text_theme"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:backgroundTint="@color/colorPrimary"
+                    android:textColor="@color/primary_light"
+                    android:textColorHint="@color/primary_light"
                     android:digits="01"
-                    android:ems="10"
+                    android:ems="13"
                     android:hint="@string/enter_id"
-                    android:inputType="numberDecimal"
-                    android:textColor="@color/colorPrimary"
-                    android:textColorHint="@color/colorPrimaryDark"
-                    android:textSize="20dp" />
+                    android:inputType="number"
+                    android:textSize="16dp" />
             </HorizontalScrollView>
 
         </LinearLayout>
@@ -72,7 +74,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
         android:background="@drawable/dialog_bg"
         android:orientation="horizontal"
@@ -88,6 +90,7 @@
 
             <TextView
                 android:id="@+id/txt_dec"
+                style="@style/text_theme"
                 android:layout_width="70dp"
                 android:layout_height="match_parent"
                 android:background="@drawable/dialog_bg"
@@ -112,16 +115,17 @@
 
                 <EditText
                     android:id="@+id/txt_decimal"
+                    style="@style/text_theme"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:backgroundTint="@color/colorPrimary"
                     android:digits="0123456789"
-                    android:ems="10"
+                    android:inputType="number"
+                    android:ems="13"
                     android:hint="@string/enter_id"
-                    android:inputType="numberDecimal"
-                    android:textColor="@color/colorPrimary"
-                    android:textColorHint="@color/colorPrimaryDark"
-                    android:textSize="20dp" />
+                    android:backgroundTint="@color/colorPrimary"
+                    android:textColor="@color/primary_light"
+                    android:textColorHint="@color/primary_light"
+                    android:textSize="16dp" />
             </HorizontalScrollView>
 
         </LinearLayout>
@@ -132,7 +136,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
         android:background="@drawable/dialog_bg"
         android:orientation="horizontal"
@@ -148,6 +152,7 @@
 
             <TextView
                 android:id="@+id/txt_oct"
+                style="@style/text_theme"
                 android:layout_width="70dp"
                 android:layout_height="match_parent"
                 android:background="@drawable/dialog_bg"
@@ -172,16 +177,17 @@
 
                 <EditText
                     android:id="@+id/txt_octal"
+                    style="@style/text_theme"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:backgroundTint="@color/colorPrimary"
                     android:digits="01234567"
-                    android:ems="10"
+                    android:ems="13"
                     android:hint="@string/enter_id"
-                    android:inputType="numberDecimal"
-                    android:textColor="@color/colorPrimary"
-                    android:textColorHint="@color/colorPrimaryDark"
-                    android:textSize="20dp" />
+                    android:inputType="number"
+                    android:textColor="@color/primary_light"
+                    android:textColorHint="@color/primary_light"
+                    android:textSize="16dp" />
             </HorizontalScrollView>
 
         </LinearLayout>
@@ -192,13 +198,14 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
         android:background="@drawable/dialog_bg"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Oct_id">
+
         <LinearLayout
             android:layout_width="70dp"
             android:layout_height="match_parent"
@@ -207,6 +214,7 @@
 
             <TextView
                 android:id="@+id/txt_hex"
+                style="@style/text_theme"
                 android:layout_width="70dp"
                 android:layout_height="match_parent"
                 android:background="@drawable/dialog_bg"
@@ -231,16 +239,17 @@
 
                 <EditText
                     android:id="@+id/txt_hexadecimal"
+                    style="@style/text_theme"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:backgroundTint="@color/colorPrimary"
                     android:digits="0123456789ABCDEF"
-                    android:ems="10"
+                    android:ems="13"
                     android:hint="@string/enter_id"
                     android:inputType="textCapCharacters"
-                    android:textColor="@color/colorPrimary"
-                    android:textColorHint="@color/colorPrimaryDark"
-                    android:textSize="20dp" />
+                    android:textColor="@color/primary_light"
+                    android:textColorHint="@color/primary_light"
+                    android:textSize="16dp" />
             </HorizontalScrollView>
 
         </LinearLayout>
@@ -248,28 +257,29 @@
 
     <Button
         android:id="@+id/btn_Convert"
+        style="@style/text_theme"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="70dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="70dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         android:background="@drawable/dialog_bg"
         android:backgroundTint="@color/colorPrimary"
         android:text="@string/str_btn_convert"
         android:textColor="@color/primary_light"
         android:textSize="20dp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btn_Clear"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Hex_id" />
 
     <Button
         android:id="@+id/btn_Clear"
+        style="@style/text_theme"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="120dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="120dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="50dp"
         android:background="@drawable/dialog_bg"
         android:backgroundTint="@color/colorAccent"
         android:text="@string/str_btn_clear"
@@ -277,6 +287,7 @@
         android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_Convert" />
+        app:layout_constraintStart_toEndOf="@+id/btn_Convert"
+        app:layout_constraintTop_toBottomOf="@+id/Hex_id" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
