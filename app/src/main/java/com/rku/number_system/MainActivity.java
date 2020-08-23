@@ -65,102 +65,71 @@ public class MainActivity extends AppCompatActivity {
                 int hex_id = hex_text.getId();
                 if (!bin.isEmpty() && dec.isEmpty() && oct.isEmpty() && hex.isEmpty())
                 {
-                    if (ValidBin(bin) == 1) {
+//                    if (ValidBin(bin) == 1) {
                         Convert(bin, bin_id);
-                    } else {
-                        System.out.println("panthil");
-                    }
-//                    getAnsBin = bin.length();
-//                    getAnsDec = dec.length();
-//                    getAnsOct = oct.length();
-//                    getAnsHex = hex.length();
+//                    } else {
+//                        System.out.println("panthil");
+//                    }
                 }
                 else if (bin.isEmpty() && !dec.isEmpty() && oct.isEmpty() && hex.isEmpty())
                 {
-                    if (ValidDec(dec) == 1) {
+//                    if (ValidDec(dec) == 1) {
                         Convert(dec, dec_id);
-                    } else {
-                        System.out.println("panthil");
-                    }
-//                    getAnsBin = bin.length();
-//                    getAnsDec = dec.length();
-//                    getAnsOct = oct.length();
-//                    getAnsHex = hex.length();
+//                    } else {
+//                        System.out.println("panthil");
+//                    }
 
                 }
                 else if (bin.isEmpty() && dec.isEmpty() && !oct.isEmpty() && hex.isEmpty())
                 {
-                    if (ValidOct(oct) == 1) {
+//                    if (ValidOct(oct) == 1) {
                         Convert(oct, oct_id);
-                    } else {
-                        System.out.println("panthil");
-                    }
-//                    getAnsBin = bin.length();
-//                    getAnsDec = dec.length();
-//                    getAnsOct = oct.length();
-//                    getAnsHex = hex.length();
+//                    } else {
+//                        System.out.println("panthil");
+//                    }
                 }
                 else if (bin.isEmpty() && dec.isEmpty() && oct.isEmpty() && !hex.isEmpty())
                 {
-                    if (ValidHex(hex) == 1) {
+//                    if (ValidHex(hex) == 1) {
                         Convert(hex, hex_id);
-                    } else {
-                        System.out.println("panthil");
-                    }
-//                    getAnsBin = bin.length();
-//                    getAnsDec = dec.length();
-//                    getAnsOct = oct.length();
-//                    getAnsHex = hex.length();
+//                    } else {
+//                        System.out.println("panthil");
+//                    }
                 }
                 else
                 {
                     if (!dec.isEmpty() && getAnsDec < dec.length())
                     {
-                        if (ValidDec(dec) == 1) {
+//                        if (ValidDec(dec) == 1) {
                             Convert(dec, dec_id);
-                        } else {
-                            System.out.println("panthil");
-                        }
-//                        getAnsBin = bin.length();
-//                        getAnsDec = dec.length();
-//                        getAnsOct = oct.length();
-//                        getAnsHex = hex.length();
+//                        } else {
+//                            System.out.println("panthil");
+//                        }
                     }
                     else if (!bin.isEmpty() && getAnsBin < bin.length())
                     {
-                        if (ValidBin(dec) == 1) {
-                            Convert(dec, dec_id);
-                        } else {
-                            System.out.println("panthil");
-                        }
-//                        getAnsBin = bin.length();
-//                        getAnsDec = dec.length();
-//                        getAnsOct = oct.length();
-//                        getAnsHex = hex.length();
+//                        if (ValidBin(dec) == 1) {
+                            Convert(bin, bin_id);
+//                        } else {
+//                            System.out.println("panthil");
+//                        }
                     }
                     else if (!oct.isEmpty() && getAnsOct < oct.length())
                     {
-                        if (ValidOct(oct) == 1) {
+//                        if (ValidOct(oct) == 1) {
                             Convert(oct, oct_id);
-                        } else {
-                            System.out.println("panthil");
-                        }
-//                        getAnsBin = bin.length();
-//                        getAnsDec = dec.length();
-//                        getAnsOct = oct.length();
-//                        getAnsHex = hex.length();
+//                        } else {
+//                            System.out.println("panthil");
+//                        }
                     }
                     else if (!hex.isEmpty() && getAnsHex < hex.length())
                     {
-                        if (ValidHex(hex) == 1) {
+//                        if (ValidHex(hex) == 1) {
                             Convert(hex, hex_id);
-                        } else {
-                            System.out.println("panthil");
-                        }
-//                        getAnsBin = bin.length();
-//                        getAnsDec = dec.length();
-//                        getAnsOct = oct.length();
-//                        getAnsHex = hex.length();
+//                        } else {
+//                            System.out.println("panthil");
+//                        }
+
                     }
                 }
         }
