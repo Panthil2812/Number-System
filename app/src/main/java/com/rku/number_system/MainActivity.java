@@ -2,12 +2,17 @@ package com.rku.number_system;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
 import java.io.*;
 import java.lang.reflect.Array;
 import java.util.*;
@@ -24,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private  Button Clear;
     private  String  value;
     public  Integer  getAnsBin=0,getAnsDec=0,getAnsOct=0,getAnsHex=0;
+    private  View.OnClickListener copyListener;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -36,7 +42,35 @@ public class MainActivity extends AppCompatActivity {
         Convert = findViewById(R.id.btn_Convert);
         Clear = findViewById(R.id.btn_Clear);
 
+        copyListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ClipboardManager clipboardManager = (ClipboardManager)getSystemService(Context.CLIPBOARD_SERVICE);
+                ClipData clipData = null;
 
+                switch (view.getId())
+                {
+                    case R.id.copy_bin:
+                        clipData = ClipData.newPlainText("Copied Data",bin_text.getText().toString());
+                        break;
+                    case R.id.copy_dec:
+                        clipData = ClipData.newPlainText("Copied Data",dec_text.getText().toString());
+                        break;
+                    case R.id.copy_oct:
+                        clipData = ClipData.newPlainText("Copied Data",oct_text.getText().toString());
+                        break;
+                    case R.id.copy_hex:
+                        clipData = ClipData.newPlainText("Copied Data",hex_text.getText().toString());
+                        break;
+                }
+                clipboardManager.setPrimaryClip(clipData);
+                Toast.makeText(getApplicationContext(),"Copied Data", Toast.LENGTH_LONG).show();
+            }
+        };
+        findViewById(R.id.copy_bin).setOnClickListener(copyListener);
+        findViewById(R.id.copy_dec).setOnClickListener(copyListener);
+        findViewById(R.id.copy_oct).setOnClickListener(copyListener);
+        findViewById(R.id.copy_hex).setOnClickListener(copyListener);
 
         Clear.setOnClickListener(new View.OnClickListener()
         {
@@ -46,6 +80,10 @@ public class MainActivity extends AppCompatActivity {
                  hex_text.setText("");
                  oct_text.setText("");
                  dec_text.setText("");
+                bin_text.setError(null);
+                dec_text.setError(null);
+                oct_text.setError(null);
+                hex_text.setError(null);
                 getAnsBin = 0;
                 getAnsDec = 0;
                 getAnsOct = 0;
@@ -63,79 +101,120 @@ public class MainActivity extends AppCompatActivity {
                 int dec_id = dec_text.getId();
                 int oct_id = oct_text.getId();
                 int hex_id = hex_text.getId();
-                if (!bin.isEmpty() && dec.isEmpty() && oct.isEmpty() && hex.isEmpty())
+                //all edittext empty
+                if(bin.isEmpty() && dec.isEmpty() && oct.isEmpty() && hex.isEmpty())
                 {
-//                    if (ValidBin(bin) == 1) {
-                        Convert(bin, bin_id);
-//                    } else {
-//                        System.out.println("panthil");
-//                    }
+                    ErrorShow(101);
                 }
+                //decimal text not empty
                 else if (bin.isEmpty() && !dec.isEmpty() && oct.isEmpty() && hex.isEmpty())
                 {
-//                    if (ValidDec(dec) == 1) {
+                    if (ValidDec(dec) == 1) {
                         Convert(dec, dec_id);
-//                    } else {
-//                        System.out.println("panthil");
-//                    }
+                    } else {
+                         ErrorShow(dec_id);
+                    }
 
                 }
+                //binary text not empty
+                else if (!bin.isEmpty() && dec.isEmpty() && oct.isEmpty() && hex.isEmpty())
+                {
+                    if (ValidBin(bin) == 1) {
+                        Convert(bin, bin_id);
+                    } else {
+                        ErrorShow(bin_id);
+                    }
+                }
+                //octal text not empty
                 else if (bin.isEmpty() && dec.isEmpty() && !oct.isEmpty() && hex.isEmpty())
                 {
-//                    if (ValidOct(oct) == 1) {
+                    if (ValidOct(oct) == 1) {
                         Convert(oct, oct_id);
-//                    } else {
-//                        System.out.println("panthil");
-//                    }
+                    } else {
+                        ErrorShow(oct_id);
+                    }
                 }
+                //hexadecimal text not empty
                 else if (bin.isEmpty() && dec.isEmpty() && oct.isEmpty() && !hex.isEmpty())
                 {
-//                    if (ValidHex(hex) == 1) {
+                    if (ValidHex(hex) == 1) {
                         Convert(hex, hex_id);
-//                    } else {
-//                        System.out.println("panthil");
-//                    }
+                    } else {
+                        ErrorShow(hex_id);
+                    }
                 }
                 else
                 {
-                    if (!dec.isEmpty() && getAnsDec < dec.length())
+                    //decimal second time
+                    if (!dec.isEmpty() && getAnsDec != dec.length())
                     {
-//                        if (ValidDec(dec) == 1) {
+                        if (ValidDec(dec) == 1) {
                             Convert(dec, dec_id);
-//                        } else {
-//                            System.out.println("panthil");
-//                        }
+                        } else {
+                            ErrorShow(dec_id);
+                        }
                     }
-                    else if (!bin.isEmpty() && getAnsBin < bin.length())
+                    //binary second time
+                    else if (!bin.isEmpty() && getAnsBin != bin.length())
                     {
-//                        if (ValidBin(dec) == 1) {
+                        if (ValidBin(bin) == 1) {
                             Convert(bin, bin_id);
-//                        } else {
-//                            System.out.println("panthil");
-//                        }
+                        } else {
+                            ErrorShow(bin_id);
+                        }
                     }
+                    //octal second time
                     else if (!oct.isEmpty() && getAnsOct < oct.length())
                     {
-//                        if (ValidOct(oct) == 1) {
+                        if (ValidOct(oct) == 1) {
                             Convert(oct, oct_id);
-//                        } else {
-//                            System.out.println("panthil");
-//                        }
+                        } else {
+                            ErrorShow(oct_id);
+                        }
                     }
+                    // hexadecimal second time
                     else if (!hex.isEmpty() && getAnsHex < hex.length())
                     {
-//                        if (ValidHex(hex) == 1) {
+                        if (ValidHex(hex) == 1) {
                             Convert(hex, hex_id);
-//                        } else {
-//                            System.out.println("panthil");
-//                        }
+                        } else {
+                            ErrorShow(hex_id);
+                        }
 
                     }
                 }
         }
         });
+
     }
 
+    private void ErrorShow(int id)   {
+        switch (id)
+        {
+
+            case 101:
+                bin_text.requestFocus();
+                bin_text.setError("Please Enter Value");
+                break;
+
+            case R.id.txt_binary:
+                bin_text.requestFocus();
+                bin_text.setError("Invalid Input");
+                break;
+            case R.id.txt_decimal:
+                dec_text.requestFocus();
+                dec_text.setError("Invalid Input");
+                break;
+            case R.id.txt_octal:
+                oct_text.requestFocus();
+                oct_text.setError("Invalid Input");
+                break;
+            case R.id.txt_hexadecimal:
+                hex_text.requestFocus();
+                hex_text.setError("Invalid Input");
+                break;
+        }
+    }
     private int ValidBin(String bin) {
         StringBuilder sbf = new StringBuilder(bin);
         int valid =0;
@@ -161,10 +240,11 @@ public class MainActivity extends AppCompatActivity {
                 valid = 0;
             }
         }
+        System.out.println(valid);
         return valid;
     }
     private int ValidDec(String dec) {
-   // System.out.println("binary string : "+dec);
+
         StringBuilder sbf = new StringBuilder(dec);
         int valid =0;
 
@@ -196,7 +276,7 @@ public class MainActivity extends AppCompatActivity {
         return valid;
     }
     private int ValidOct(String oct) {
-        //System.out.println("binary string : "+oct);
+
         StringBuilder sbf = new StringBuilder(oct);
         int valid =0;
 
@@ -206,17 +286,12 @@ public class MainActivity extends AppCompatActivity {
                 char first = sbf.charAt(0);
                 char on = sbf.charAt(i);
                 char next =sbf.charAt(i+1);
-                char last =sbf.charAt(sbf.length()-1);
-                if(first==' '||first =='+' ||first =='-'||first =='*'||first =='/'||first =='.'){
-                    valid =0;
-                    break;
-                }
-                else if (last =='+' ||last =='-'||last =='*'||last =='/'||last =='.')
+                if(first =='.')
                 {
                     valid =0;
                     break;
                 }
-                else if(on == '1'||on =='2'||on == '3'||on =='4'||on == '5'||on =='6'||on == '7'||on =='0'||(on =='.' && next !='.'))
+                if(on == '1'||on =='2'||on == '3'||on =='4'||on == '5'||on =='6'||on == '7'||on =='0'||(on =='.' && next !='.'))
                 {
                     valid = 1;
                 }
@@ -239,7 +314,7 @@ public class MainActivity extends AppCompatActivity {
         return valid;
     }
     private int ValidHex(String hex) {
-        //System.out.println("Hexadecimal string : "+hex);
+
         StringBuilder sbf = new StringBuilder(hex);
         int valid =0;
 
@@ -249,18 +324,12 @@ public class MainActivity extends AppCompatActivity {
                 char first = sbf.charAt(0);
                 char on = sbf.charAt(i);
                 char next =sbf.charAt(i+1);
-                char last =sbf.charAt(sbf.length()-1);
-
-                if(first==' '||first =='+' ||first =='-'||first =='*'||first =='/'||first =='.'){
-                    valid =0;
-                    break;
-                }
-                else if (last =='+' ||last =='-'||last =='*'||last =='/'||last =='.')
+                if(first =='.')
                 {
                     valid =0;
                     break;
                 }
-                else if(on == '1'||on =='2'||on == '3'||on =='4'||on == '5'||on =='6'||on == '7'||on =='8'||on == '9'||on =='0'||on =='.')
+                if(on == '1'||on =='2'||on == '3'||on =='4'||on == '5'||on =='6'||on == '7'||on =='8'||on == '9'||on =='0'||(on =='.'&& next !='.'))
                 {
                     valid = 1;
                 }else if(on == 'A'||on =='B'||on == 'C'||on =='D'||on == 'E'||on =='F')
@@ -290,8 +359,13 @@ public class MainActivity extends AppCompatActivity {
     private void Convert(String str ,int id)
     {
         String ansBin=null,ansDec=null,ansOct=null,ansHex=null;
+        bin_text.setError(null);
+        dec_text.setError(null);
+        oct_text.setError(null);
+        hex_text.setError(null);
         switch (id)
         {
+
             case R.id.txt_binary:
                 ansDec = calculator.BintoDec(str);
                 ansBin = str;
@@ -318,9 +392,16 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
         bin_text.setText(ansBin);
+        bin_text.setSelection(bin_text.length());
+
         dec_text.setText(ansDec);
+        dec_text.setSelection(dec_text.length());
+
         oct_text.setText(ansOct);
+        oct_text.setSelection(oct_text.length());
+
         hex_text.setText(ansHex);
+        hex_text.setSelection(hex_text.length());
         getAnsBin = bin_text.length();
         getAnsDec = dec_text.length();
         getAnsOct = oct_text.length();

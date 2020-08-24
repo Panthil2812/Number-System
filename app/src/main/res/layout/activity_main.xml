@@ -17,9 +17,9 @@
             android:id="@+id/bin_id"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginStart="32dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="32dp"
-            android:layout_marginEnd="32dp"
+            android:layout_marginEnd="50dp"
             android:addStatesFromChildren="false"
             android:background="@drawable/dialog_bg"
             android:orientation="horizontal"
@@ -78,184 +78,184 @@
 
         </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/Dec_id"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
-        android:background="@drawable/dialog_bg"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/Oct_id"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bin_id">
-
         <LinearLayout
-            android:layout_width="70dp"
-            android:layout_height="match_parent"
+            android:id="@+id/Dec_id"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="50dp"
             android:background="@drawable/dialog_bg"
-            android:orientation="vertical">
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/Oct_id"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bin_id">
 
-            <TextView
-                android:id="@+id/txt_dec"
-                style="@style/text_theme"
+            <LinearLayout
                 android:layout_width="70dp"
                 android:layout_height="match_parent"
                 android:background="@drawable/dialog_bg"
-                android:backgroundTint="@color/colorPrimary"
-                android:gravity="center"
-                android:text="@string/decimal"
-                android:textColor="@color/primary_light"
-                android:textSize="30sp"
-                android:textStyle="bold" />
-        </LinearLayout>
+                android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:orientation="vertical">
+                <TextView
+                    android:id="@+id/txt_dec"
+                    style="@style/text_theme"
+                    android:layout_width="70dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/dialog_bg"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:gravity="center"
+                    android:text="@string/decimal"
+                    android:textColor="@color/primary_light"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
 
-            <EditText
-                android:id="@+id/txt_decimal"
-                style="@style/text_theme"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:backgroundTint="@color/colorPrimary"
-                android:digits="1234567890."
-                android:ems="13"
-                android:hint="@string/enter_id"
-                android:inputType="none|numberSigned"
-                android:singleLine="true"
-                android:textColor="@color/primary_light"
-                android:textColorHint="@color/primary_light"
-                android:textSize="16dp" />
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="vertical">
 
+                <EditText
+                    android:id="@+id/txt_decimal"
+                    style="@style/text_theme"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:digits="1234567890."
+                    android:ems="13"
+                    android:hint="@string/enter_id"
+                    android:inputType="none|numberSigned"
+                    android:singleLine="true"
+                    android:textColor="@color/primary_light"
+                    android:textColorHint="@color/primary_light"
+                    android:textSize="16dp" />
+
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/Oct_id"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
-        android:background="@drawable/dialog_bg"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/Hex_id"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Dec_id">
 
         <LinearLayout
-            android:layout_width="70dp"
-            android:layout_height="match_parent"
+            android:id="@+id/Oct_id"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="50dp"
             android:background="@drawable/dialog_bg"
-            android:orientation="vertical">
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/Hex_id"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Dec_id">
 
-            <TextView
-                android:id="@+id/txt_oct"
-                style="@style/text_theme"
+            <LinearLayout
                 android:layout_width="70dp"
                 android:layout_height="match_parent"
                 android:background="@drawable/dialog_bg"
-                android:backgroundTint="@color/colorPrimary"
-                android:gravity="center"
-                android:text="@string/octal"
-                android:textColor="@color/primary_light"
-                android:textSize="30sp"
-                android:textStyle="bold" />
-        </LinearLayout>
+                android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:orientation="vertical">
+                <TextView
+                    android:id="@+id/txt_oct"
+                    style="@style/text_theme"
+                    android:layout_width="70dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/dialog_bg"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:gravity="center"
+                    android:text="@string/octal"
+                    android:textColor="@color/primary_light"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
 
-            <EditText
-                android:id="@+id/txt_octal"
-                style="@style/text_theme"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:backgroundTint="@color/colorPrimary"
-                android:digits="01234567."
-                android:ems="13"
-                android:hint="@string/enter_id"
-                android:inputType="none|numberDecimal"
-                android:singleLine="true"
-                android:textColor="@color/primary_light"
-                android:textColorHint="@color/primary_light"
-                android:textSize="16dp" />
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="vertical">
 
+                <EditText
+                    android:id="@+id/txt_octal"
+                    style="@style/text_theme"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:digits="01234567."
+                    android:ems="13"
+                    android:hint="@string/enter_id"
+                    android:inputType="none|numberDecimal"
+                    android:singleLine="true"
+                    android:textColor="@color/primary_light"
+                    android:textColorHint="@color/primary_light"
+                    android:textSize="16dp" />
+
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/Hex_id"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="16dp"
-        android:background="@drawable/dialog_bg"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/btn_Convert"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Oct_id">
 
         <LinearLayout
-            android:layout_width="70dp"
-            android:layout_height="match_parent"
+            android:id="@+id/Hex_id"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="16dp"
             android:background="@drawable/dialog_bg"
-            android:orientation="vertical">
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/btn_Convert"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Oct_id">
 
-            <TextView
-                android:id="@+id/txt_hex"
-                style="@style/text_theme"
+            <LinearLayout
                 android:layout_width="70dp"
                 android:layout_height="match_parent"
                 android:background="@drawable/dialog_bg"
-                android:backgroundTint="@color/colorPrimary"
-                android:gravity="center"
-                android:text="@string/hexadecimal"
-                android:textColor="@color/primary_light"
-                android:textSize="30sp"
-                android:textStyle="bold" />
-        </LinearLayout>
+                android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:orientation="vertical">
+                <TextView
+                    android:id="@+id/txt_hex"
+                    style="@style/text_theme"
+                    android:layout_width="70dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/dialog_bg"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:gravity="center"
+                    android:text="@string/hexadecimal"
+                    android:textColor="@color/primary_light"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
 
-            <EditText
-                android:id="@+id/txt_hexadecimal"
-                style="@style/text_theme"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:backgroundTint="@color/colorPrimary"
-                android:digits="0123456789abcdefABCDEF."
-                android:ems="13"
-                android:hint="@string/enter_id"
-                android:inputType="textCapCharacters"
-                android:numeric="decimal"
-                android:singleLine="true"
-                android:textColor="@color/primary_light"
-                android:textColorHint="@color/primary_light"
-                android:textSize="16dp" />
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="vertical">
 
+                <EditText
+                    android:id="@+id/txt_hexadecimal"
+                    style="@style/text_theme"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:digits="0123456789abcdefABCDEF."
+                    android:ems="13"
+                    android:hint="@string/enter_id"
+                    android:inputType="textCapCharacters"
+                    android:numeric="decimal"
+                    android:singleLine="true"
+                    android:textColor="@color/primary_light"
+                    android:textColorHint="@color/primary_light"
+                    android:textSize="16dp" />
+
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
 
     <Button
             android:id="@+id/btn_Clear"
@@ -292,5 +292,62 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Hex_id" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView
+            android:id="@+id/copy_hex"
+            android:layout_width="25dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="2dp"
+            android:padding="2dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/Hex_id"
+            app:layout_constraintTop_toBottomOf="@+id/copy_oct"
+            app:srcCompat="@drawable/ic_copy" />
+
+        <ImageView
+            android:id="@+id/copy_oct"
+            android:layout_width="25dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="2dp"
+            android:padding="2dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/Oct_id"
+            app:layout_constraintTop_toBottomOf="@+id/copy_dec"
+            app:srcCompat="@drawable/ic_copy" />
+
+        <ImageView
+            android:id="@+id/copy_dec"
+            android:layout_width="25dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="2dp"
+            android:padding="2dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.52"
+            app:layout_constraintStart_toEndOf="@+id/Dec_id"
+            app:layout_constraintTop_toBottomOf="@+id/copy_bin"
+            app:srcCompat="@drawable/ic_copy" />
+
+        <ImageView
+            android:id="@+id/copy_bin"
+            android:layout_width="25dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="2dp"
+            android:padding="2dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/bin_id"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_copy" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

@@ -6,98 +6,8 @@ import java.util.*;
 import java.util.Stack;
 
 public  class calculator {
-                                                                // CALCULATOR FOR DECIMAL
-    public static Double evaluate(String expression,int id)
-    {
-        char[] tokens = expression.toCharArray();
-        // Stack for numbers: 'values'
-        Stack<Double> values = new Stack<Double>();
-        // Stack for Operators: 'ops'
-        Stack<Character> ops = new Stack<Character>();
-        String array1[]= expression.split("[+ / - *]+");
-        for (String temp: array1)
-        {
-           switch (id){
-               case R.id.txt_decimal:
-                   values.push(Double.parseDouble(temp.toString()));
-                   break;
-           }
 
-        }
-
-        for (int i = 0; i < tokens.length; i++)
-        {
-            // Current token is a whitespace, skip it
-            if (tokens[i] == ' ')
-                continue;
-            else if (tokens[i] == '(')
-                ops.push(tokens[i]);
-                // Closing brace encountered, solve entire brace
-            else if (tokens[i] == ')')
-            {
-                while (ops.peek() != '(')
-                    values.push(applyOp(ops.pop(), values.pop(), values.pop()));
-                ops.pop();
-            }
-            // Current token is an operator.
-            else if (tokens[i] == '+' || tokens[i] == '-' ||
-                    tokens[i] == '*' || tokens[i] == '/')
-            {
-                // While top of 'ops' has same or greater precedence to current
-                // token, which is an operator. Apply operator on top of 'ops'
-                // to top two elements in values stack
-                while (!ops.empty() && (hasPrecedence(tokens[i])< hasPrecedence(ops.peek())))
-                    values.push(applyOp(ops.pop(), values.pop(), values.pop()));
-                // Push current token to 'ops'.
-                ops.push(tokens[i]);
-                System.out.println(tokens[i]);
-            }
-        }
-        // Entire expression has been parsed at this point, apply remaining
-        // ops to remaining values
-        while (!ops.empty())
-            values.push(applyOp(ops.pop(), values.pop(), values.pop()));
-        // Top of 'values' contains result, return it
-        return values.pop();
-    }
-
-    public static int hasPrecedence(char op1)
-    {
-        if(op1 == '+' || op1 == '-')
-        {
-            return 1;
-        }
-        else if(op1 == '*' || op1 == '/')
-        {
-            return 2;
-        }
-        return 0;
-    }
-    // A utility method to apply an operator 'op' on operands 'a'
-    // and 'b'. Return the result.
-    public static double applyOp(char op, double b, double a)
-    {
-        switch (op)
-        {
-            case '+':
-                //System.out.println("a+b  : "+a +" + "+b);
-                return a + b;
-            case '-':
-              //  System.out.println("a-b  : "+a +" - "+b);
-                return a - b;
-            case '*':
-                //System.out.println("a*b  : "+a +" * "+b);
-                return a * b;
-            case '/':
-               // System.out.println("a/b  : "+a  +" / "+b);
-                if (b == 0)
-                    throw new
-                            UnsupportedOperationException("Cannot divide by zero");
-                return a / b;
-        }
-        return 0;
-    }
-                                                                         //DECIMAL TO BINARY CONVERT
+    //DECIMAL TO BINARY CONVERT
     public static String DecToBin(String str)
     {
         String bin = "";
@@ -138,8 +48,7 @@ public  class calculator {
         }
         return bin;
     }
-                                                                                 // DECIMAL TO OCTAL
-
+    // DECIMAL TO OCTAL
     public static String DecToOct(String dec)
     {
         String oct = "";
@@ -170,8 +79,7 @@ public  class calculator {
         }
         return oct;
     }
-                                                                            // DECIMAL TO HEXADECIMAL
-
+    // DECIMAL TO HEXADECIMAL
     public static String DecToHex(String dec)
     {
         String hex = "";
@@ -200,7 +108,6 @@ public  class calculator {
         }
         return hex;
     }
-
     // BINARY TO DECIMAL
    public static String BintoDec(String bin)
     {
