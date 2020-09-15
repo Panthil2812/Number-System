@@ -1,23 +1,14 @@
 package com.rku.number_system;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
-import java.io.*;
-import java.lang.reflect.Array;
-import java.util.*;
-
-import java.util.regex.Pattern;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -35,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        this.setTitle("Number System Convert");
         bin_text  = findViewById(R.id.txt_binary);
         dec_text  = findViewById(R.id.txt_decimal);
         oct_text  = findViewById(R.id.txt_octal);
