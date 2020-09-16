@@ -1,13 +1,21 @@
 package com.rku.number_system;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.app.Dialog;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+
 import android.os.Bundle;
+import android.view.Menu;
+
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
 import android.widget.Toast;
 
 
@@ -102,7 +110,9 @@ public class MainActivity extends AppCompatActivity {
                 else if (bin.isEmpty() && !dec.isEmpty() && oct.isEmpty() && hex.isEmpty())
                 {
                     if (ValidDec(dec) == 1) {
-                        Convert(dec, dec_id);
+                       try{ Convert(dec, dec_id);} catch (Exception e){
+                           ErrorShow(dec_id);
+                       }
                     } else {
                          ErrorShow(dec_id);
                     }
@@ -112,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
                 else if (!bin.isEmpty() && dec.isEmpty() && oct.isEmpty() && hex.isEmpty())
                 {
                     if (ValidBin(bin) == 1) {
-                        Convert(bin, bin_id);
+                        try{Convert(bin, bin_id);}catch ( Exception e){ ErrorShow(bin_id);}
                     } else {
                         ErrorShow(bin_id);
                     }
@@ -121,7 +131,7 @@ public class MainActivity extends AppCompatActivity {
                 else if (bin.isEmpty() && dec.isEmpty() && !oct.isEmpty() && hex.isEmpty())
                 {
                     if (ValidOct(oct) == 1) {
-                        Convert(oct, oct_id);
+                       try{ Convert(oct, oct_id);}catch (Exception e){ErrorShow(oct_id);}
                     } else {
                         ErrorShow(oct_id);
                     }
@@ -130,7 +140,7 @@ public class MainActivity extends AppCompatActivity {
                 else if (bin.isEmpty() && dec.isEmpty() && oct.isEmpty() && !hex.isEmpty())
                 {
                     if (ValidHex(hex) == 1) {
-                        Convert(hex, hex_id);
+                        try{Convert(hex, hex_id);} catch (Exception e){ErrorShow(hex_id);}
                     } else {
                         ErrorShow(hex_id);
                     }
@@ -141,7 +151,9 @@ public class MainActivity extends AppCompatActivity {
                     if (!dec.isEmpty() && getAnsDec != dec.length())
                     {
                         if (ValidDec(dec) == 1) {
-                            Convert(dec, dec_id);
+                            try{ Convert(dec, dec_id);} catch (Exception e){
+                                ErrorShow(dec_id);
+                            }
                         } else {
                             ErrorShow(dec_id);
                         }
@@ -150,25 +162,31 @@ public class MainActivity extends AppCompatActivity {
                     else if (!bin.isEmpty() && getAnsBin != bin.length())
                     {
                         if (ValidBin(bin) == 1) {
-                            Convert(bin, bin_id);
+                            try{ Convert(bin, bin_id);} catch (Exception e){
+                                ErrorShow(bin_id);
+                            }
                         } else {
                             ErrorShow(bin_id);
                         }
                     }
                     //octal second time
-                    else if (!oct.isEmpty() && getAnsOct < oct.length())
+                    else if (!oct.isEmpty() && getAnsOct !=  oct.length())
                     {
                         if (ValidOct(oct) == 1) {
-                            Convert(oct, oct_id);
+                            try{ Convert(oct, oct_id);} catch (Exception e){
+                                ErrorShow(oct_id);
+                            }
                         } else {
                             ErrorShow(oct_id);
                         }
                     }
                     // hexadecimal second time
-                    else if (!hex.isEmpty() && getAnsHex < hex.length())
+                    else if (!hex.isEmpty() && getAnsHex != hex.length())
                     {
                         if (ValidHex(hex) == 1) {
-                            Convert(hex, hex_id);
+                            try{ Convert(hex, hex_id);} catch (Exception e){
+                                ErrorShow(hex_id);
+                            }
                         } else {
                             ErrorShow(hex_id);
                         }
@@ -177,6 +195,7 @@ public class MainActivity extends AppCompatActivity {
                 }
         }
         });
+
 
     }
 
@@ -207,6 +226,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
     }
+
     private int ValidBin(String bin) {
         StringBuilder sbf = new StringBuilder(bin);
         int valid =0;
@@ -226,15 +246,14 @@ public class MainActivity extends AppCompatActivity {
             if(sbf.charAt(0)=='1'||sbf.charAt(0)=='0')
             {
                 valid =1;
-
             }
             else {
                 valid = 0;
             }
         }
-        System.out.println(valid);
         return valid;
     }
+
     private int ValidDec(String dec) {
 
         StringBuilder sbf = new StringBuilder(dec);
@@ -267,6 +286,7 @@ public class MainActivity extends AppCompatActivity {
         }
         return valid;
     }
+
     private int ValidOct(String oct) {
 
         StringBuilder sbf = new StringBuilder(oct);
@@ -305,6 +325,7 @@ public class MainActivity extends AppCompatActivity {
         }
         return valid;
     }
+
     private int ValidHex(String hex) {
 
         StringBuilder sbf = new StringBuilder(hex);
@@ -348,8 +369,7 @@ public class MainActivity extends AppCompatActivity {
         return valid;
     }
 
-    private void Convert(String str ,int id)
-    {
+    private void Convert(String str ,int id) {
         String ansBin=null,ansDec=null,ansOct=null,ansHex=null;
         bin_text.setError(null);
         dec_text.setError(null);

@@ -5,7 +5,8 @@
     <string name="decimal">Dec</string>
     <string name="octal">Oct</string>
     <string name="hexadecimal">Hex</string>
-    <string name = "enter_id">Enter a value</string>
+    <string name="enter_id">Enter a value</string>
     <string name="str_btn_convert">Convert</string>
     <string name="str_btn_clear">Clear</string>
+    <string name="developer">Developed by: Panthil</string>
 </resources>
